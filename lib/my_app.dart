@@ -3,6 +3,7 @@ import 'package:music_app/pages/layout.dart';
 import 'package:music_app/widgets/mp_inherited.dart';
 import 'package:flute_music_player/flute_music_player.dart';
 import 'package:flutter/material.dart';
+import 'package:music_app/test.dart';
 
 class MyApp extends StatefulWidget {
   @override

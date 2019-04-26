@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:music_app/data/song_data.dart';
 import 'package:music_app/widgets/mp_album_ui.dart';
 import 'package:music_app/widgets/mp_blur_filter.dart';
@@ -8,6 +9,8 @@ import 'package:music_app/widgets/mp_blur_widget.dart';
 import 'package:music_app/widgets/mp_control_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flute_music_player/flute_music_player.dart';
+import 'package:media_notification/media_notification.dart';
+
 
 enum PlayerState { stopped, playing, paused }
 
@@ -47,6 +50,42 @@ class _NowPlayingState extends State<NowPlaying> {
   initState() {
     super.initState();
     initPlayer();
+
+    MediaNotification.setListener('pause', () {
+      isPlaying ? pause() : play(song);
+    });
+
+    MediaNotification.setListener('play', () {
+      isPlaying ? pause() : play(song);
+    });
+
+    MediaNotification.setListener('next', () {
+      next(widget.songData);
+    });
+
+    MediaNotification.setListener('prev', () {
+      prev(widget.songData);
+    });
+
+    MediaNotification.setListener('select', () {
+
+    });
+  }
+
+  Future<void> hide() async {
+    try {
+      await MediaNotification.hide();
+    } on PlatformException {
+
+    }
+  }
+
+  Future<void> show(title, author) async {
+    try {
+      await MediaNotification.show(title: title, author: author);
+    } on PlatformException {
+
+    }
   }
 
   @override
@@ -103,11 +142,13 @@ class _NowPlayingState extends State<NowPlaying> {
   Future play(Song s) async {
     if (s != null) {
       final result = await audioPlayer.play(s.uri, isLocal: true);
-      if (result == 1)
+      if (result == 1) {
         setState(() {
           playerState = PlayerState.playing;
           song = s;
         });
+        show(song.title, song.artist);
+      }
     }
   }
 
@@ -231,7 +272,7 @@ class _NowPlayingState extends State<NowPlaying> {
                     ],
                   )),
               Spacer(),
-          Padding(
+              Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child:  duration == null
                 ? new Container()
