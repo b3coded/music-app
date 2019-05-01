@@ -90,6 +90,7 @@ class _NowPlayingState extends State<NowPlaying> {
 
   @override
   void dispose() {
+    hide();
     super.dispose();
   }
 
@@ -252,6 +253,8 @@ class _NowPlayingState extends State<NowPlaying> {
                             new Text(
                               song.title,
                               textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -259,6 +262,8 @@ class _NowPlayingState extends State<NowPlaying> {
                             ),
                             new Text(
                               song.artist,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: Colors.white.withOpacity(0.6),
                                   fontSize: 16),

@@ -23,57 +23,49 @@ class MPArtistsView extends StatelessWidget{
       i++;
     }
     return new GridView.count(
-        crossAxisCount: 2,
+      crossAxisCount: 2,
       children: List.generate(artists.length, (index){
-      var a = artists[index];
-      final MaterialColor color = _colors[index % _colors.length];
-      return GestureDetector(
+        var a = artists[index];
+        final MaterialColor color = _colors[index % _colors.length];
+        return GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () {
               //TODO: Page with Artist Musics
             },
             child: Container(
-              height: 120,
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    height: 120.0,
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          height: 120,
-                          decoration: new BoxDecoration(
-                            color: color,
-                          ),
+                height: 120,
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        height: 120.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              height: 120,
+                              decoration: new BoxDecoration(
+                                  color: color,
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          right: 16.0,
-                          top: 16.0,
-                          child: Icon(
-                            Icons.bookmark,
-                            color: Colors.white.withOpacity(0.6),
-                            size: 24.0,
-                          ),
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 6.0),
+                        child: Text(
+                          a,
+                          style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 12.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
-                    child: Text(
-                      a,
-                      style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                  )
-                ]
+                      )
+                    ]
+                )
             )
-            )
-          );
+        );
       }),
     );
   }

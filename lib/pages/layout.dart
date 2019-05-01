@@ -30,7 +30,7 @@ class _LayoutState extends State<Layout>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-        backgroundColor: blueColor,
+        backgroundColor: blueColor.withOpacity(1),
         body: SafeArea(
           top: true,
           child:  _widgetOptions.elementAt(_selectedIndex),

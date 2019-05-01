@@ -91,15 +91,13 @@ class MPListView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Spacer(),
-                Column(
-                  children: <Widget>[
-                    Icon(
+                SizedBox(width: 16.0),
+                Container(
+                  child: Icon(
                       Icons.more_vert,
                       color: Colors.white.withOpacity(0.6),
                       size: 32.0,
-                    )
-                  ]
+                  ),
                 )
 
               ],
