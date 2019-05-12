@@ -5,7 +5,6 @@ import 'package:music_app/widgets/mp_horizontal_listview.dart';
 import 'package:flute_music_player/flute_music_player.dart';
 import 'package:flutter/material.dart';
 
-//TODO: add state para paginas
 class ArtistsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,9 @@ class ArtistsPage extends StatelessWidget {
                   new Text("Artists", style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),textAlign: TextAlign.left,),
                   SizedBox(height: 16),
 
-                  new Expanded(child: MPArtistsView())
+                  new Expanded(child: MPArtistsView()),
+
+                  SizedBox(height: 76)
                 ],
               ),
             )

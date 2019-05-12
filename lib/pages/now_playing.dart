@@ -227,9 +227,16 @@ class _NowPlayingState extends State<NowPlaying> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Icon(
-                                  Icons.arrow_drop_down,
-                                  color: Colors.white,
+                                GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
+                                  onTap: (){
+                                    Navigator.pop(context);
+                                  },
+                                  child:  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Colors.white,
+                                    size: 32,
+                                  ),
                                 ),
                                 Column(
                                   children: <Widget>[
@@ -278,18 +285,18 @@ class _NowPlayingState extends State<NowPlaying> {
                   )),
               Spacer(),
               Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child:  duration == null
-                ? new Container()
-                : new Slider(
-                activeColor: pinkColor,
-                inactiveColor: pinkColor.withOpacity(0.3),
-                value: position?.inMilliseconds?.toDouble() ?? 0,
-                onChanged: (double value) =>
-                    audioPlayer.seek((value / 1000).roundToDouble()),
-                min: 0.0,
-                max: duration.inMilliseconds.toDouble()),
-          ),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child:  duration == null
+                    ? new Container()
+                    : new Slider(
+                    activeColor: pinkColor,
+                    inactiveColor: pinkColor.withOpacity(0.3),
+                    value: position?.inMilliseconds?.toDouble() ?? 0,
+                    onChanged: (double value) =>
+                        audioPlayer.seek((value / 1000).roundToDouble()),
+                    min: 0.0,
+                    max: duration.inMilliseconds.toDouble()),
+              ),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
