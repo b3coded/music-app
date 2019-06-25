@@ -1,16 +1,22 @@
-# music_app
+# Music Player
 
-A new Flutter application.
+## Screenshots (Current Version 0.5)
 
-## Getting Started
+| | |
+|:-------------------------:|:-------------------------:|
+|<img src="https://github.com/b3coded/music-app/blob/master/screenshots/Artists.jpeg">|<img src="https://github.com/b3coded/music-app/blob/master/screenshots/Home.jpeg">|
+|<img src="https://github.com/b3coded/music-app/blob/master/screenshots/NowPlaying.jpeg">||
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## OS Support:
+Android only
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+## Description:
+A Music Player made with Flutter to play all musics saved on your Android Device.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Features:
+- Dark Theme (I love Dark Theme so i preferred to start with it)
+- Play, Pause, Next, Previous, Shuffle
+
+## Bugs:
+If you want to report a Bug go to <a href="https://github.com/b3coded/music-app/issues">this link</a> and create a New issue, i'll try to fix it as fast as I can :D
