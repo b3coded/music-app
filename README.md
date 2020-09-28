@@ -24,7 +24,10 @@ A Music Player made with Flutter to play all musics saved on your Android Device
 
 ## Bugs:
 If you want to report a Bug go to <a href="https://github.com/b3coded/music-app/issues">this link</a> and create a New issue, i'll try to fix it as fast as I can :D
-
+<br>
+<br>
+<br>
+<br>
 # PORTUGUÊS
 ## Suporte de Sistema Operacional:
 Apenas Android
